@@ -1,21 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Container = styled.div`
-  font-size: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  padding: 2rem;
-  margin: 0 auto;
-  > label {
-    padding-bottom: 1rem;
-  }
-  > input {
-    height: 2rem;
-  }
-`;
-
 const Input = ({ label, name, value, onChange }) => {
   return (
     <Container>
@@ -33,3 +18,18 @@ const Input = ({ label, name, value, onChange }) => {
 };
 
 export default Input;
+
+const Container = styled.div`
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding: 2rem;
+  margin: 0 auto;
+  > label {
+    padding-bottom: 1rem;
+  }
+  > input {
+    height: 2rem;
+  }
+`;

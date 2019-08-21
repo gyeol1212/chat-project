@@ -3,11 +3,24 @@ import styled from 'styled-components';
 
 import Input from './Input';
 
+const HomeContainer = ({ user, onChange, joinRoom }) => {
+  return (
+    <Container>
+      <p>TITLE</p>
+      <Input label='이름' name='name' value={user.name} onChange={e => onChange(e)} />
+      <Input label='방' name='room' value={user.room} onChange={e => onChange(e)} />
+      <button onClick={joinRoom}>입장</button>
+    </Container>
+  );
+};
+
+export default HomeContainer;
+
 const Container = styled.div`
   border: 1px solid black;
-  width: 50%;
+  width: 30%;
   padding-bottom: 6rem;
-  margin: auto;
+  margin: 15rem auto;
   > p {
     font-size: 2rem;
     margin: 3rem;
@@ -24,16 +37,3 @@ const Container = styled.div`
     outline: none;
   }
 `;
-
-const HomeContainer = ({ user, onChange }) => {
-  return (
-    <Container>
-      <p>TITLE</p>
-      <Input label='이름' name='name' value={user.name} onChange={e => onChange(e)} />
-      <Input label='방' name='room' value={user.room} onChange={e => onChange(e)} />
-      <button>입장</button>
-    </Container>
-  );
-};
-
-export default HomeContainer;
