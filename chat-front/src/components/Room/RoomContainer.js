@@ -8,7 +8,8 @@ const RoomContainer = ({ messages, message, onChange, sendMessage, myname, goBac
 
   useEffect(() => {
     console.log(chatScreenEl);
-    chatScreenEl.current.scrollTop = chatScreenEl.current.clientHeight;
+    chatScreenEl.current.scrollTop =
+      chatScreenEl.current.scrollHeight - chatScreenEl.current.offsetHeight;
   }, [messages]);
 
   const handleKeyPress = e => {

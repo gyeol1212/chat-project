@@ -5,6 +5,7 @@ import { HomeContainer } from '../components/Home';
 
 import useInputs from '../hooks/useInputs';
 import { UserInfoContext } from '../contexts/userInfo';
+import { ChatContext } from '../contexts/chat';
 
 const Home = props => {
   const [user, onChange] = useInputs({
@@ -13,6 +14,7 @@ const Home = props => {
   });
 
   const userInfo = useContext(UserInfoContext);
+  const chat = useContext(ChatContext);
 
   useEffect(() => {
     if (userInfo.state.username) {
@@ -21,12 +23,13 @@ const Home = props => {
     if (userInfo.state.room) {
       onChange({ name: 'room', value: userInfo.state.room });
     }
-  }, []);
+  }, [userInfo]);
 
   const joinRoom = () => {
     if (!user.name || !user.room) return alert('이름과 방은 필수입니다!');
     userInfo.action.setUsername(user.name);
     userInfo.action.setRoom(user.room);
+    chat.action.connectSocket(user);
     props.history.push('/room');
   };
 

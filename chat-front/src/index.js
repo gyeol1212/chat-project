@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
 import { UserInfoProvider } from './contexts/userInfo';
+import { ChatProvider } from './contexts/chat';
 
 import './index.css';
 import App from './App';
@@ -11,7 +12,9 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <BrowserRouter>
     <UserInfoProvider>
-      <App />
+      <ChatProvider>
+        <App />
+      </ChatProvider>
     </UserInfoProvider>
   </BrowserRouter>,
   document.getElementById('root')

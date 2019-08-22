@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Input = ({ label, name, value, onChange }) => {
   return (
     <Container>
-      <label for={name}>{label}</label>
+      <label htmlFor={name}>{label}</label>
       <input
         name={name}
         type='text'
